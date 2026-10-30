@@ -1,0 +1,71 @@
+{
+  "row": 3423,
+  "score": 0.9981115830776104,
+  "explanation": {
+    "values": [
+      [
+        9.544814719810583,
+        0.4146605796955437,
+        1.1794389722172072,
+        0.034667611752314975,
+        0.0031371730673393217,
+        0.5611656848842469,
+        0.15670479656589975,
+        -0.14127541536151414,
+        0.269817579052607,
+        -0.0007230501112914561,
+        -0.7360221655357417
+      ]
+    ],
+    "base_values": [
+      -5.0162602801661
+    ],
+    "raw_output": [
+      6.270126205871107
+    ],
+    "names": [
+      "Montant (USD)",
+      "Heure (sinus)",
+      "Heure (cosinus)",
+      "Jour de semaine",
+      "Distance domicile-marchand (km)",
+      "Transactions antérieures sur 1 h",
+      "Transactions antérieures sur 24 h",
+      "Montant / moyenne antérieure sur 30 j",
+      "Secondes depuis la transaction précédente",
+      "Historique absent",
+      "Catégorie marchande"
+    ],
+    "units": "log-odds de la classe fraude (1)",
+    "display_data": [
+      [
+        976.1,
+        -0.13917310096006674,
+        0.9902680687415701,
+        1.0,
+        92.27200606328864,
+        2.0,
+        4.0,
+        6.25893197074442,
+        2298.0,
+        0.0,
+        "shopping_net"
+      ]
+    ],
+    "data": [
+      [
+        976.1,
+        -0.13917310096006674,
+        0.9902680687415701,
+        1.0,
+        92.27200606328864,
+        2.0,
+        4.0,
+        6.25893197074442,
+        2298.0,
+        0.0,
+        null
+      ]
+    ]
+  }
+}

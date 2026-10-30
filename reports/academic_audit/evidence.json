@@ -1,0 +1,608 @@
+{
+  "prediction_provenance": "Seul le préfixe démo de 5000 lignes était initialement sauvegardé. Scores complets reconstruits sans fit depuis les modèles figés, puis relus depuis le parquet d’audit. Pas de preuve cryptographique que les scores complets étaient archivés lors de l’expérience initiale.",
+  "splits": {
+    "train": {
+      "rows": 1111436,
+      "fraction": 0.5999997840632176,
+      "frauds": 6401,
+      "prevalence": 0.005759216005240068,
+      "start": "2019-01-01 00:00:18+00:00",
+      "end": "2020-04-07 07:00:14+00:00"
+    },
+    "validation": {
+      "rows": 370479,
+      "fraction": 0.20000010796839118,
+      "frauds": 1901,
+      "prevalence": 0.0051311950205004874,
+      "start": "2020-04-07 07:00:36+00:00",
+      "end": "2020-08-25 01:31:21+00:00"
+    },
+    "test": {
+      "rows": 370479,
+      "fraction": 0.20000010796839118,
+      "frauds": 1349,
+      "prevalence": 0.0036412320266465846,
+      "start": "2020-08-25 01:31:59+00:00",
+      "end": "2020-12-31 23:59:34+00:00"
+    }
+  },
+  "timestamp_tied_groups": 32333,
+  "tied_rows": 65176,
+  "behavior": {
+    "rows_checked": 1852394,
+    "windows": "[t-durée,t[ ; groupe simultané inséré après décision",
+    "oracle": "files temporelles, sommes exactes en centimes, aucun label lu",
+    "max_absolute_errors": {
+      "count_1h": 0.0,
+      "count_24h": 0.0,
+      "amount_ratio_30d": 5.6843418860808015e-12,
+      "seconds_since_previous": 0.0,
+      "history_missing": 0.0
+    }
+  },
+  "split_boundary_prefix_invariance": true,
+  "train_only_preprocessing": true,
+  "models": {
+    "logistic": {
+      "type": "LogisticRegression",
+      "training_rows": 1111436,
+      "score_orientation": "classe 1",
+      "class_weight": "balanced",
+      "contamination": null,
+      "novelty": null
+    },
+    "boosting": {
+      "type": "HistGradientBoostingClassifier",
+      "training_rows": 1111436,
+      "score_orientation": "classe 1",
+      "class_weight": "balanced",
+      "contamination": null,
+      "novelty": null
+    },
+    "isolation": {
+      "type": "IsolationForest",
+      "training_rows": 50000,
+      "score_orientation": "-score_samples",
+      "class_weight": null,
+      "contamination": "auto",
+      "novelty": null
+    },
+    "lof": {
+      "type": "LocalOutlierFactor",
+      "training_rows": 3000,
+      "score_orientation": "-score_samples",
+      "class_weight": null,
+      "contamination": "auto",
+      "novelty": true
+    }
+  },
+  "recalculated": {
+    "validation": {
+      "logistic": {
+        "average_precision": 0.20749742016077075,
+        "roc_auc": 0.9515162113194983,
+        "f2": 0.4497594626486339,
+        "mcc": 0.38494427806575127,
+        "precision_at_k": 0.18368794326241134,
+        "recall_at_k": 0.681220410310363,
+        "k": 7050,
+        "topk_true_frauds": 1295,
+        "total_frauds": 1901,
+        "confusion": [
+          [
+            366156,
+            2422
+          ],
+          [
+            910,
+            991
+          ]
+        ],
+        "alerts": 3413,
+        "missed_fraud_usd": 173790.96,
+        "investigation_usd": 17065.0,
+        "cost": 190855.96,
+        "no_alert_cost": 989313.46,
+        "days": 141,
+        "peak_alerts_per_day": 50,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-04-07 00:00:00+00:00",
+          "transactions": 2465,
+          "frauds": 13,
+          "topk_alerts": 50,
+          "topk_true_frauds": 7,
+          "threshold_alerts": 14,
+          "threshold_true_frauds": 5
+        },
+        "last_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 220,
+          "frauds": 9,
+          "topk_alerts": 50,
+          "topk_true_frauds": 9,
+          "threshold_alerts": 7,
+          "threshold_true_frauds": 7
+        },
+        "validation_optimum": {
+          "threshold": 0.9424152433060554,
+          "cost": 190855.96,
+          "admissible_thresholds": 3370,
+          "selected_on": "validation seulement ; vérification, sans mise à jour"
+        }
+      },
+      "boosting": {
+        "average_precision": 0.8767444314381835,
+        "roc_auc": 0.9979652460416784,
+        "f2": 0.8045446148161832,
+        "mcc": 0.7020479154736187,
+        "precision_at_k": 0.2604255319148936,
+        "recall_at_k": 0.9658074697527617,
+        "k": 7050,
+        "topk_true_frauds": 1836,
+        "total_frauds": 1901,
+        "confusion": [
+          [
+            367098,
+            1480
+          ],
+          [
+            159,
+            1742
+          ]
+        ],
+        "alerts": 3222,
+        "missed_fraud_usd": 15295.93,
+        "investigation_usd": 16110.0,
+        "cost": 31405.93,
+        "no_alert_cost": 989313.46,
+        "days": 141,
+        "peak_alerts_per_day": 50,
+        "cutoff_tie_days": 1,
+        "cutoff_ties": [
+          {
+            "day": "2020-08-25 00:00:00+00:00",
+            "score": 0.028381443412048152,
+            "tied": 2,
+            "selected_from_tie": 1
+          }
+        ],
+        "first_day": {
+          "date": "2020-04-07 00:00:00+00:00",
+          "transactions": 2465,
+          "frauds": 13,
+          "topk_alerts": 50,
+          "topk_true_frauds": 13,
+          "threshold_alerts": 18,
+          "threshold_true_frauds": 9
+        },
+        "last_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 220,
+          "frauds": 9,
+          "topk_alerts": 50,
+          "topk_true_frauds": 9,
+          "threshold_alerts": 10,
+          "threshold_true_frauds": 9
+        },
+        "validation_optimum": {
+          "threshold": 0.8826259267588804,
+          "cost": 31405.93,
+          "admissible_thresholds": 3031,
+          "selected_on": "validation seulement ; vérification, sans mise à jour"
+        }
+      },
+      "isolation": {
+        "average_precision": 0.08284318318789247,
+        "roc_auc": 0.8742269524301608,
+        "f2": 0.1334724815994727,
+        "mcc": 0.14003703944794516,
+        "precision_at_k": 0.11829787234042553,
+        "recall_at_k": 0.4387164650184114,
+        "k": 7050,
+        "topk_true_frauds": 834,
+        "total_frauds": 1901,
+        "confusion": [
+          [
+            367322,
+            1256
+          ],
+          [
+            1658,
+            243
+          ]
+        ],
+        "alerts": 1499,
+        "missed_fraud_usd": 773427.17,
+        "investigation_usd": 7495.0,
+        "cost": 780922.17,
+        "no_alert_cost": 989313.46,
+        "days": 141,
+        "peak_alerts_per_day": 48,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-04-07 00:00:00+00:00",
+          "transactions": 2465,
+          "frauds": 13,
+          "topk_alerts": 50,
+          "topk_true_frauds": 4,
+          "threshold_alerts": 3,
+          "threshold_true_frauds": 0
+        },
+        "last_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 220,
+          "frauds": 9,
+          "topk_alerts": 50,
+          "topk_true_frauds": 9,
+          "threshold_alerts": 2,
+          "threshold_true_frauds": 2
+        },
+        "validation_optimum": {
+          "threshold": 0.5237744814361642,
+          "cost": 780922.17,
+          "admissible_thresholds": 1519,
+          "selected_on": "validation seulement ; vérification, sans mise à jour"
+        }
+      },
+      "lof": {
+        "average_precision": 0.06886888165493271,
+        "roc_auc": 0.8655674866319979,
+        "f2": 0.12462353307716274,
+        "mcc": 0.1176503470483163,
+        "precision_at_k": 0.08893617021276595,
+        "recall_at_k": 0.3298264071541294,
+        "k": 7050,
+        "topk_true_frauds": 627,
+        "total_frauds": 1901,
+        "confusion": [
+          [
+            366793,
+            1785
+          ],
+          [
+            1661,
+            240
+          ]
+        ],
+        "alerts": 2025,
+        "missed_fraud_usd": 801685.84,
+        "investigation_usd": 10125.0,
+        "cost": 811810.84,
+        "no_alert_cost": 989313.46,
+        "days": 141,
+        "peak_alerts_per_day": 50,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-04-07 00:00:00+00:00",
+          "transactions": 2465,
+          "frauds": 13,
+          "topk_alerts": 50,
+          "topk_true_frauds": 2,
+          "threshold_alerts": 8,
+          "threshold_true_frauds": 1
+        },
+        "last_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 220,
+          "frauds": 9,
+          "topk_alerts": 50,
+          "topk_true_frauds": 9,
+          "threshold_alerts": 3,
+          "threshold_true_frauds": 2
+        },
+        "validation_optimum": {
+          "threshold": 1.4069965650991885,
+          "cost": 811810.84,
+          "admissible_thresholds": 2028,
+          "selected_on": "validation seulement ; vérification, sans mise à jour"
+        }
+      }
+    },
+    "test": {
+      "logistic": {
+        "average_precision": 0.16481321398665028,
+        "roc_auc": 0.9492433323023862,
+        "f2": 0.42321574106415183,
+        "mcc": 0.3468160434031628,
+        "precision_at_k": 0.14821705426356588,
+        "recall_at_k": 0.7086730911786508,
+        "k": 6450,
+        "topk_true_frauds": 956,
+        "total_frauds": 1349,
+        "confusion": [
+          [
+            366664,
+            2466
+          ],
+          [
+            622,
+            727
+          ]
+        ],
+        "alerts": 3193,
+        "missed_fraud_usd": 122468.84,
+        "investigation_usd": 15965.0,
+        "cost": 138433.84,
+        "no_alert_cost": 733911.72,
+        "days": 129,
+        "peak_alerts_per_day": 66,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 3526,
+          "frauds": 18,
+          "topk_alerts": 50,
+          "topk_true_frauds": 13,
+          "threshold_alerts": 30,
+          "threshold_true_frauds": 8
+        },
+        "last_day": {
+          "date": "2020-12-31 00:00:00+00:00",
+          "transactions": 3377,
+          "frauds": 0,
+          "topk_alerts": 50,
+          "topk_true_frauds": 0,
+          "threshold_alerts": 21,
+          "threshold_true_frauds": 0
+        }
+      },
+      "boosting": {
+        "average_precision": 0.860069059680148,
+        "roc_auc": 0.9977174074507773,
+        "f2": 0.7768379151635776,
+        "mcc": 0.6599262637064942,
+        "precision_at_k": 0.202015503875969,
+        "recall_at_k": 0.9659006671608599,
+        "k": 6450,
+        "topk_true_frauds": 1303,
+        "total_frauds": 1349,
+        "confusion": [
+          [
+            367736,
+            1394
+          ],
+          [
+            100,
+            1249
+          ]
+        ],
+        "alerts": 2643,
+        "missed_fraud_usd": 11319.66,
+        "investigation_usd": 13215.0,
+        "cost": 24534.66,
+        "no_alert_cost": 733911.72,
+        "days": 129,
+        "peak_alerts_per_day": 47,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 3526,
+          "frauds": 18,
+          "topk_alerts": 50,
+          "topk_true_frauds": 18,
+          "threshold_alerts": 29,
+          "threshold_true_frauds": 17
+        },
+        "last_day": {
+          "date": "2020-12-31 00:00:00+00:00",
+          "transactions": 3377,
+          "frauds": 0,
+          "topk_alerts": 50,
+          "topk_true_frauds": 0,
+          "threshold_alerts": 15,
+          "threshold_true_frauds": 0
+        }
+      },
+      "isolation": {
+        "average_precision": 0.040791010992608456,
+        "roc_auc": 0.8582433517217583,
+        "f2": 0.10837311314669075,
+        "mcc": 0.08989418037158403,
+        "precision_at_k": 0.09364341085271317,
+        "recall_at_k": 0.4477390659747961,
+        "k": 6450,
+        "topk_true_frauds": 604,
+        "total_frauds": 1349,
+        "confusion": [
+          [
+            366943,
+            2187
+          ],
+          [
+            1181,
+            168
+          ]
+        ],
+        "alerts": 2355,
+        "missed_fraud_usd": 581799.98,
+        "investigation_usd": 11775.0,
+        "cost": 593574.98,
+        "no_alert_cost": 733911.72,
+        "days": 129,
+        "peak_alerts_per_day": 192,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 3526,
+          "frauds": 18,
+          "topk_alerts": 50,
+          "topk_true_frauds": 8,
+          "threshold_alerts": 17,
+          "threshold_true_frauds": 2
+        },
+        "last_day": {
+          "date": "2020-12-31 00:00:00+00:00",
+          "transactions": 3377,
+          "frauds": 0,
+          "topk_alerts": 50,
+          "topk_true_frauds": 0,
+          "threshold_alerts": 6,
+          "threshold_true_frauds": 0
+        }
+      },
+      "lof": {
+        "average_precision": 0.03862106167085417,
+        "roc_auc": 0.8512853776727467,
+        "f2": 0.11760675953414021,
+        "mcc": 0.09156444954357697,
+        "precision_at_k": 0.06899224806201551,
+        "recall_at_k": 0.32987398072646407,
+        "k": 6450,
+        "topk_true_frauds": 445,
+        "total_frauds": 1349,
+        "confusion": [
+          [
+            365974,
+            3156
+          ],
+          [
+            1143,
+            206
+          ]
+        ],
+        "alerts": 3362,
+        "missed_fraud_usd": 571196.77,
+        "investigation_usd": 16810.0,
+        "cost": 588006.77,
+        "no_alert_cost": 733911.72,
+        "days": 129,
+        "peak_alerts_per_day": 269,
+        "cutoff_tie_days": 0,
+        "cutoff_ties": [],
+        "first_day": {
+          "date": "2020-08-25 00:00:00+00:00",
+          "transactions": 3526,
+          "frauds": 18,
+          "topk_alerts": 50,
+          "topk_true_frauds": 4,
+          "threshold_alerts": 15,
+          "threshold_true_frauds": 1
+        },
+        "last_day": {
+          "date": "2020-12-31 00:00:00+00:00",
+          "transactions": 3377,
+          "frauds": 0,
+          "topk_alerts": 50,
+          "topk_true_frauds": 0,
+          "threshold_alerts": 7,
+          "threshold_true_frauds": 0
+        }
+      }
+    }
+  },
+  "demo_predictions_equal_reconstruction": true,
+  "shap": {
+    "row": 3423,
+    "base": -5.0162602801661,
+    "contribution_sum": 11.286386486037195,
+    "margin": 6.270126205871095,
+    "score": 0.9981115830776104,
+    "reason_codes": [
+      {
+        "name": "Montant (USD)",
+        "contribution": 9.544814719810583
+      },
+      {
+        "name": "Heure (cosinus)",
+        "contribution": 1.1794389722172072
+      },
+      {
+        "name": "Transactions antérieures sur 1 h",
+        "contribution": 0.5611656848842469
+      },
+      {
+        "name": "Heure (sinus)",
+        "contribution": 0.4146605796955437
+      },
+      {
+        "name": "Secondes depuis la transaction précédente",
+        "contribution": 0.269817579052607
+      }
+    ],
+    "saved_values_preserved": true
+  },
+  "http_raw_history_checks": [
+    {
+      "event_position": 1111436,
+      "model": "logistic",
+      "history_rows": 1748,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1111436,
+      "model": "boosting",
+      "history_rows": 1748,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1111436,
+      "model": "isolation",
+      "history_rows": 1748,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1111436,
+      "model": "lof",
+      "history_rows": 1748,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1481915,
+      "model": "logistic",
+      "history_rows": 1156,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1481915,
+      "model": "boosting",
+      "history_rows": 1156,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1481915,
+      "model": "isolation",
+      "history_rows": 1156,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1481915,
+      "model": "lof",
+      "history_rows": 1156,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1485338,
+      "model": "logistic",
+      "history_rows": 575,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1485338,
+      "model": "boosting",
+      "history_rows": 575,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1485338,
+      "model": "isolation",
+      "history_rows": 575,
+      "absolute_error": 0.0
+    },
+    {
+      "event_position": 1485338,
+      "model": "lof",
+      "history_rows": 575,
+      "absolute_error": 6.661338147750939e-16
+    }
+  ],
+  "threshold_sequence_audit": "scripts/train.py : fit/prétraitement train ; sélection de variantes et seuils validation ; winner gelé avant transformation/scoring test. Aucun fit pendant cet audit.",
+  "frozen_hashes_unchanged": 34,
+  "predictions_sha256": "eeaefc9b98466db65fe85f7d8116d7b36255d3b5c8ecde3319e4a425c4adf0f4"
+}

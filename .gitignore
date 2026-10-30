@@ -1,0 +1,33 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+.kaggle/
+*.pem
+*.key
+*.p12
+*.pfx
+kaggle.json
+credentials.json
+data/raw/
+data/cache/
+data/source_paths.json
+data/private/
+tmp/
+docs/*.pdf
+*.zip
+*.log
+.ipynb_checkpoints/
+# Preuves de livraison privées et prédictions exhaustives hors démonstration.
+reports/archives.json
+reports/extraction_audit.json
+reports/academic_audit/predictions.parquet
+reports/academic_audit/extraction.json
+reports/academic_audit/interface.txt
+# Copie renommée locale : seul le rapport au nom canonique est publié.
+reports/FraudInsight_XAI.pdf

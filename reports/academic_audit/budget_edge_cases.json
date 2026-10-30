@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "fixture": "58 événements ex aequo ; journée partielle de 3 événements puis journée de 55 événements",
+  "selected_daily": [
+    3,
+    50
+  ],
+  "total_selected": 53,
+  "tie_breaking": "ordre de ligne stable ; premiers 50 ex aequo du deuxième jour",
+  "prorating": false
+}

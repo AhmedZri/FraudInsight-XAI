@@ -1,0 +1,6 @@
+# Conserver les octets d'origine, y compris sous Windows (empreintes figées).
+* -text
+*.joblib binary
+*.parquet binary
+*.png binary
+*.pdf binary

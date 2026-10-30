@@ -1,0 +1,57 @@
+{
+  "models": {
+    "logistic": {
+      "sha256": "3325c6369cff023db0b1555f278596db07d42499c6065acf65f3de17bb76ddcb",
+      "score_kind": "probabilité non calibrée",
+      "policy": {
+        "threshold": 0.9424152433060554,
+        "cost": 190855.95999999825,
+        "alerts": 3413,
+        "capacity": 50,
+        "investigation": 5.0,
+        "effectiveness": 1.0,
+        "selected_on": "validation"
+      }
+    },
+    "boosting": {
+      "sha256": "4997b43aec883ece7b4a61cec676d3fb3d449b206ae22e55ed2d9953b85d82a4",
+      "score_kind": "probabilité non calibrée",
+      "policy": {
+        "threshold": 0.8826259267588804,
+        "cost": 31405.929999998185,
+        "alerts": 3222,
+        "capacity": 50,
+        "investigation": 5.0,
+        "effectiveness": 1.0,
+        "selected_on": "validation"
+      }
+    },
+    "isolation": {
+      "sha256": "579429e8ea8b84eb84834b651983ec3e34c32713e9ad1258d9a2db3750d020f8",
+      "score_kind": "score d’anomalie (pas une probabilité)",
+      "policy": {
+        "threshold": 0.5237744814361642,
+        "cost": 780922.1699999996,
+        "alerts": 1499,
+        "capacity": 50,
+        "investigation": 5.0,
+        "effectiveness": 1.0,
+        "selected_on": "validation"
+      }
+    },
+    "lof": {
+      "sha256": "f061b5d28d471ef754d52a4c6f5943ea8d9190ab7195f059ecd6327638191076",
+      "score_kind": "score d’anomalie (pas une probabilité)",
+      "policy": {
+        "threshold": 1.4069965650991885,
+        "cost": 811810.8400000001,
+        "alerts": 2025,
+        "capacity": 50,
+        "investigation": 5.0,
+        "effectiveness": 1.0,
+        "selected_on": "validation"
+      }
+    }
+  },
+  "winner": "boosting"
+}

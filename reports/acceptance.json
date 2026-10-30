@@ -1,0 +1,30 @@
+{
+  "api": {
+    "health": {
+      "status": "ok",
+      "service": "fraudinsight-xai",
+      "artifact_ready": true
+    },
+    "logistic": "score HTTP OK ; SHAP HTTP OK",
+    "boosting": "score HTTP OK ; SHAP HTTP OK",
+    "isolation": "score HTTP OK",
+    "lof": "score HTTP OK"
+  },
+  "streamlit": {
+    "1 · Données": "rendu sans exception ; appels HTTP réels",
+    "2 · Préparation": "rendu sans exception ; appels HTTP réels",
+    "3 · Modélisation": "rendu sans exception ; appels HTTP réels",
+    "4 · Évaluation et coût": "rendu sans exception ; appels HTTP réels",
+    "5 · Explications SHAP": "rendu sans exception ; appels HTTP réels",
+    "6 · API et méthode": "rendu sans exception ; appels HTTP réels",
+    "curseur_budget": "25 alertes/jour, rendu réussi",
+    "serveur_réel": "HTTP /_stcore/health 200, commande streamlit run cloud_app.py"
+  },
+  "screenshots": "non réalisées : aucun navigateur disponible dans la session ; figures réelles séparées dans reports/figures",
+  "environment": "win32",
+  "public_deployment": "non exécuté, autorisation de publication absente",
+  "duration_seconds": 37.47,
+  "peak_combined_rss_bytes": 749862912,
+  "under_1_gib": true,
+  "resource_scope": "Processus audit (Streamlit AppTest + imports) et descendants FastAPI, un visiteur, pas une garantie Linux/cloud."
+}

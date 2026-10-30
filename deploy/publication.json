@@ -1,0 +1,12 @@
+{
+  "entrypoint": "cloud_app.py",
+  "python": "3.11",
+  "training_enabled": false,
+  "api_visibility": "internal_loopback_only",
+  "release_authorized": true,
+  "github_repository": "https://github.com/AhmedZri/FraudInsight-XAI",
+  "public_deployment_authorized": false,
+  "exclude": ["docs/*.pdf", ".git", ".venv", "data/cache", "data/raw", "data/private", "tmp", ".env", ".kaggle"],
+  "public_artifacts": ["artifacts/*.joblib", "artifacts/manifest.json", "data/demo/transactions.parquet", "reports/results.json"],
+  "note": "Les artefacts autorisés proviennent exclusivement de Sparkov synthétique sous CC0, sans identités brutes."
+}

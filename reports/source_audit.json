@@ -1,0 +1,88 @@
+{
+  "source": "kartik2112/fraud-detection",
+  "version": 1,
+  "licence": "CC0: Public Domain",
+  "acquisition": "kagglehub public, sans connexion ni jeton fourni",
+  "files": [
+    {
+      "file": "fraudTrain.csv",
+      "bytes": 351238196,
+      "rows": 1296675,
+      "frauds": 7506,
+      "prevalence": 0.005788651743883394,
+      "start": "2019-01-01 00:00:18",
+      "end": "2020-06-21 12:13:37",
+      "columns": [
+        "Unnamed: 0",
+        "trans_date_trans_time",
+        "cc_num",
+        "merchant",
+        "category",
+        "amt",
+        "first",
+        "last",
+        "gender",
+        "street",
+        "city",
+        "state",
+        "zip",
+        "lat",
+        "long",
+        "city_pop",
+        "job",
+        "dob",
+        "trans_num",
+        "unix_time",
+        "merch_lat",
+        "merch_long",
+        "is_fraud"
+      ],
+      "missing_values": {
+        "trans_date_trans_time": 0,
+        "amt": 0,
+        "is_fraud": 0
+      },
+      "sha256": "fd7139200dbfcbed0b6742bbe05a4f1abce532c4fef20918228a651647a3e75d"
+    },
+    {
+      "file": "fraudTest.csv",
+      "bytes": 150354339,
+      "rows": 555719,
+      "frauds": 2145,
+      "prevalence": 0.0038598644278853163,
+      "start": "2020-06-21 12:14:25",
+      "end": "2020-12-31 23:59:34",
+      "columns": [
+        "Unnamed: 0",
+        "trans_date_trans_time",
+        "cc_num",
+        "merchant",
+        "category",
+        "amt",
+        "first",
+        "last",
+        "gender",
+        "street",
+        "city",
+        "state",
+        "zip",
+        "lat",
+        "long",
+        "city_pop",
+        "job",
+        "dob",
+        "trans_num",
+        "unix_time",
+        "merch_lat",
+        "merch_long",
+        "is_fraud"
+      ],
+      "missing_values": {
+        "trans_date_trans_time": 0,
+        "amt": 0,
+        "is_fraud": 0
+      },
+      "sha256": "12d553ab19440c752d2531ee1af44bb64f12cc3d3839f1649f19e81c230545f0"
+    }
+  ]
+}

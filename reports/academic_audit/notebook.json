@@ -1,0 +1,7 @@
+{
+  "executed_code_cells": 11,
+  "errors": 0,
+  "saved_notebook_unchanged": true,
+  "first_attempt": "kernel startup timeout during concurrent full-data audit",
+  "retry": "isolated execution with WindowsSelectorEventLoopPolicy"
+}
